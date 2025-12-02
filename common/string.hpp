@@ -18,4 +18,27 @@ namespace mbq
         }
         return value;
     }
+
+    inline std::vector<std::string_view> split(std::string_view string, std::string_view delim)
+    {
+        std::vector<std::string_view> container;
+        size_t last = 0;
+        size_t pos;
+        const size_t len = delim.length();
+        while ((pos = string.find(delim, last)) != std::string_view::npos)
+        {
+            if (pos == last)
+            {
+                last += len;
+                continue;
+            }
+            container.emplace_back(string.substr(last, pos - last));
+            last = pos + len;
+        }
+        if (last < string.length())
+        {
+            container.emplace_back(string.substr(last, pos - last));
+        }
+        return container;
+    }
 } // namespace mbq
