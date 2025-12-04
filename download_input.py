@@ -1,13 +1,14 @@
 import os
 import sys
-import requests
 from pathlib import Path
+
+import requests
 from dotenv import load_dotenv
 
 
-def load_session_token() -> str:
+def load_session_token() -> str | None:
     load_dotenv()
-    return os.getenv('SESSION_TOKEN')
+    return os.getenv("SESSION_TOKEN")
 
 
 def download_input(day_path: str):
@@ -17,11 +18,11 @@ def download_input(day_path: str):
         sys.exit(1)
 
     day_dir = Path(day_path)
-    day = day_dir.name.split('-')[1]
+    day = day_dir.name.split("-")[1]
     year = day_dir.parent.name
 
     url = f"https://adventofcode.com/{year}/day/{int(day)}/input"
-    headers = {'Cookie': f'session={session_token}'}
+    headers = {"Cookie": f"session={session_token}"}
 
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
