@@ -2,6 +2,7 @@
 
 #include <charconv>
 #include <print>
+#include <ranges>
 #include <string_view>
 
 namespace mbq
@@ -41,4 +42,18 @@ namespace mbq
         }
         return container;
     }
+
+    template <typename T>
+    std::vector<T> split_convert(std::string_view string, std::string_view delim)
+    {
+        return split(string, delim) | std::views::transform([](const auto& x) -> T {
+                   std::stringstream stream;
+                   stream << x;
+                   T t;
+                   stream >> t;
+                   return t;
+               }) |
+               std::ranges::to<std::vector>();
+    }
+
 } // namespace mbq
