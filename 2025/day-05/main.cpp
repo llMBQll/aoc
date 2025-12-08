@@ -1,9 +1,9 @@
 #include "io.hpp"
+#include "run.hpp"
 #include "string.hpp"
 
 #include <algorithm>
 #include <cstdint>
-#include <print>
 #include <set>
 #include <vector>
 
@@ -84,6 +84,6 @@ int64_t part_2()
 
 int main()
 {
-    std::println("Part 1: {}", part_1());
-    std::println("Part 2: {}", part_2());
+    mbq::run("Part 1", part_1);
+    mbq::run("Part 2", part_2);
 }

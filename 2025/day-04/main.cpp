@@ -1,4 +1,5 @@
 #include "io.hpp"
+#include "run.hpp"
 
 bool accessible(const std::vector<std::string>& grid, int64_t row, int64_t col, int64_t width, int64_t height)
 {
@@ -59,6 +60,6 @@ int64_t part_2()
 
 int main()
 {
-    std::println("Part 1: {}", part_1());
-    std::println("Part 2: {}", part_2());
+    mbq::run("Part 1", part_1);
+    mbq::run("Part 2", part_2);
 }

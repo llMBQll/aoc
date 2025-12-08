@@ -1,4 +1,5 @@
 #include "io.hpp"
+#include "run.hpp"
 #include "string.hpp"
 
 int64_t part_1()
@@ -40,6 +41,6 @@ int64_t part_2()
 
 int main()
 {
-    std::println("Part 1: {}", part_1());
-    std::println("Part 2: {}", part_2());
+    mbq::run("Part 1", part_1);
+    mbq::run("Part 2", part_2);
 }

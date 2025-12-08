@@ -1,4 +1,5 @@
 #include "io.hpp"
+#include "run.hpp"
 
 #include <array>
 #include <cmath>
@@ -25,6 +26,6 @@ int64_t part_n()
 
 int main()
 {
-    std::println("Part 1: {}", part_n<2>());
-    std::println("Part 2: {}", part_n<12>());
+    mbq::run("Part 1", part_n<2>);
+    mbq::run("Part 2", part_n<12>);
 }
