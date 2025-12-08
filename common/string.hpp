@@ -3,7 +3,9 @@
 #include <charconv>
 #include <print>
 #include <ranges>
+#include <sstream>
 #include <string_view>
+#include <vector>
 
 namespace mbq
 {
@@ -55,5 +57,4 @@ namespace mbq
                }) |
                std::ranges::to<std::vector>();
     }
-
 } // namespace mbq
